@@ -5,7 +5,7 @@ pipeline {
 	   steps {
                 echo 'compiling..'
 		git url: 'https://github.com/lerndevops/DevOpsClassCodes'
-		sh script: '/usr/local/apache-maven-3.6.3 compile'
+		sh script: '/usr/local/apache-maven-3.6.3/test compile'
            }
         }
         stage('codereview-pmd') {
