@@ -5,13 +5,13 @@ pipeline {
 	   steps {
                 echo 'compiling..'
 		git url: 'https://github.com/lerndevops/DevOpsClassCodes'
-		sh script: '/usr/local/apache-maven-3.6.3/test compile'
+		sh script: '/usr/local/apache-maven-3.6.3/test1 compile'
            }
         }
         stage('codereview-pmd') {
 	   steps {
                 echo 'codereview..'
-		sh script: '/usr/local/apache-maven-3.6.3 -P metrics pmd:pmd'
+		sh script: '/usr/local/apache-maven-3.6.3/test1 -P metrics pmd:pmd'
            }
 	   post {
                success {
@@ -22,7 +22,7 @@ pipeline {
         stage('unit-test') {
 	   steps {
                 echo 'unittest..'
-		sh script: '/usr/local/apache-maven-3.6.3  test'
+		sh script: '/usr/local/apache-maven-3.6.3/test1  test'
            }
 	   post {
                success {
@@ -33,7 +33,7 @@ pipeline {
         stage('codecoverate') {
 	   steps {
                 echo 'codecoverage..'
-		sh script: '/usr/local/apache-maven-3.6.3 cobertura:cobertura -Dcobertura.report.format=xml'
+		sh script: '/usr/local/apache-maven-3.6.3/test1 cobertura:cobertura -Dcobertura.report.format=xml'
            }
 	   post {
                success {
@@ -44,7 +44,7 @@ pipeline {
         stage('package') {
 	   steps {
                 echo 'package..'
-		sh script: '/usr/local/apache-maven-3.6.3 package'	
+		sh script: '/usr/local/apache-maven-3.6.3/test1 package'	
            }		
         }
     }
