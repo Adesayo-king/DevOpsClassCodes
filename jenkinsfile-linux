@@ -22,7 +22,7 @@ pipeline {
         stage('unit-test') {
 	   steps {
                 echo 'unittest..'
-		sh script: '/usr/local/apache-maven-3.6.3/bin/ test'
+		sh script: '/usr/local/apache-maven-3.6.3/bin/mvn test'
            }
 	   post {
                success {
@@ -33,7 +33,7 @@ pipeline {
         stage('codecoverate') {
 	   steps {
                 echo 'codecoverage..'
-		sh script: '/usr/local/apache-maven-3.6.3/bin/mvn cobertura:cobertura -Dcobertura.report.format=xml'
+		sh script: '/usr/local/apache-maven-3.6.3/bin/ cobertura:cobertura -Dcobertura.report.format=xml'
            }
 	   post {
                success {
