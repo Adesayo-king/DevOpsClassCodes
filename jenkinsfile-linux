@@ -22,7 +22,7 @@ pipeline {
         stage('unit-test') {
 	   steps {
                 echo 'junit ''..'
-		sh script: '/usr/local/apache-maven-3.6.3/test1  test'
+		
            }
 	   post {
                success {
